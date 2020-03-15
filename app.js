@@ -1,19 +1,7 @@
-const env = process.env.NODE_ENV || 'development'
-
-switch (env) {
-  case 'development':
-    require('dotenv').config({path: process.cwd() + '/.env'})
-      break
-  case 'test':
-    require('dotenv').config({path: process.cwd() + '/.env.test'})
-}
-
 const express = require('express')
 const { User } = require('./models')
 
 const app = express()
-
-const PORT = process.env.PORT
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
